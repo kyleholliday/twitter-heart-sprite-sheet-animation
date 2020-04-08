@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    @-webkit-keyframes heartburst {
+      from {background-position:left;}
+      to {background-position:right;}
+    }
+    @-moz-keyframes heartburst {
+      from {background-position:left;}
+      to {background-position:right;}
+    }
+    @-o-keyframes heartburst {
+      from {background-position:left;}
+      to {background-position:right;}
+    }
+    @keyframes heartburst {
+      from {background-position:left;}
+      to {background-position:right;}
+    }
+
+    .heart {
+      cursor: pointer;
+      height: 50px;
+      width: 50px;
+      background-image: url('hearts.png');
+      background-position: left;
+      background-repeat: no-repeat;
+      background-size: 2900%;
+    }
+    .heart:hover {
+      background-position: right;
+    }
+    .is-animating {
+      -webkit-animation: heartburst .8s steps(28) 1;
+      -moz-animation: heartburst .8s steps(28) 1;
+      -o-animation: heartburst .8s steps(28) 1;
+      animation: heartburst .8s steps(28) 1;
+    }
+  </style>
+
+<div class="heart"></div>
+
+
+<script>
+  const heart = document.querySelector('.heart');
+  heart.addEventListener('click', function(){
+    heart.classList.toggle('is-animating');
+  });
+  heart.addEventListener('animationend', function() {
+    heart.classList.toggle('is-animating');
+  })
+</script>
+</body>
+</html>
